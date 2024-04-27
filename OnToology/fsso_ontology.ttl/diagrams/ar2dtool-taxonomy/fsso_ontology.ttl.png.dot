@@ -1,0 +1,48 @@
+digraph ar2dtool_diagram { 
+rankdir=LR;
+size="1000"
+node [shape = rectangle, color="black"]; "base:SeatComfort" "http://www.semanticweb.org/a/ontologies/2024/3/fsso#Bad_Food&Beverages" "base:ValueForMoney" "http://www.semanticweb.org/a/ontologies/2024/3/fsso#Good_Wifi&Connectivity" "http://www.semanticweb.org/a/ontologies/2024/3/fsso#Medium_Wifi&Connectivity" "http://www.semanticweb.org/a/ontologies/2024/3/fsso#Medium_Food&Beverages" "http://www.semanticweb.org/a/ontologies/2024/3/fsso#Bad_Wifi&Connectivity" "base:Good_CabinStaff" "base:Medium_OverallRating" "base:NonVerifiedSurvey" "base:Medium_CabinStaff" "base:Recommendation" "base:NotRecommended" "base:InflightEntertainment" "base:Good_SeatComfort" "base:OverallRating" "base:Good_GroundServices" "base:Good_OverallRating" ":PathType" "base:Bad_CabinStaff" "base:Rating" "base:FlightNumber" "base:Good_ValueForMoney" "http://www.semanticweb.org/a/ontologies/2024/3/fsso#Good_Food&Beverages" "base:Bad_ValueForMoney" "base:Bad_GroundServices" "base:Good_InflightEntertainment" "base:CabinStaff" "base:Survey" "base:Medium_SeatComfort" "base:Bad_SeatComfort" "base:Medium_ValueForMoney" "base:NonStopFlight" "http://www.semanticweb.org/a/ontologies/2024/3/fsso#Wifi&Connectivity" "base:SpecificRating" "base:Recommended" "base:Medium_GroundServices" "http://www.semanticweb.org/a/ontologies/2024/3/fsso#Food&Beverages" "base:GroundServices" "base:VerifiedSurvey" "base:InternationalFlight" "base:Bad_InflightEntertainment" "base:DomesticFlight" "base:Medium_InflightEntertainment" "base:ConnectingFlight" "base:Bad_OverallRating" ; /*classes style*/
+	"base:Bad_SeatComfort" -> "base:SeatComfort" [ label = "rdfs:subClassOf" ];
+	"base:Bad_GroundServices" -> "base:GroundServices" [ label = "rdfs:subClassOf" ];
+	"http://www.semanticweb.org/a/ontologies/2024/3/fsso#Bad_Food&Beverages" -> "http://www.semanticweb.org/a/ontologies/2024/3/fsso#Food&Beverages" [ label = "rdfs:subClassOf" ];
+	"base:Good_SeatComfort" -> "base:SeatComfort" [ label = "rdfs:subClassOf" ];
+	"base:NonStopFlight" -> "base:FlightNumber" [ label = "rdfs:subClassOf" ];
+	"base:OverallRating" -> "base:Rating" [ label = "rdfs:subClassOf" ];
+	"base:SeatComfort" -> "base:SpecificRating" [ label = "rdfs:subClassOf" ];
+	"http://www.semanticweb.org/a/ontologies/2024/3/fsso#Medium_Food&Beverages" -> "http://www.semanticweb.org/a/ontologies/2024/3/fsso#Food&Beverages" [ label = "rdfs:subClassOf" ];
+	"base:Good_OverallRating" -> "base:OverallRating" [ label = "rdfs:subClassOf" ];
+	"base:Medium_CabinStaff" -> "base:CabinStaff" [ label = "rdfs:subClassOf" ];
+	"base:Medium_OverallRating" -> "base:OverallRating" [ label = "rdfs:subClassOf" ];
+	"base:Bad_CabinStaff" -> "base:CabinStaff" [ label = "rdfs:subClassOf" ];
+	"base:Good_ValueForMoney" -> "base:ValueForMoney" [ label = "rdfs:subClassOf" ];
+	"base:Bad_OverallRating" -> "base:OverallRating" [ label = "rdfs:subClassOf" ];
+	":PathType" -> "base:FlightNumber" [ label = "rdfs:subClassOf" ];
+	"base:DomesticFlight" -> ":PathType" [ label = "rdfs:subClassOf" ];
+	"base:Bad_ValueForMoney" -> "base:ValueForMoney" [ label = "rdfs:subClassOf" ];
+	"base:Recommended" -> "base:Recommendation" [ label = "rdfs:subClassOf" ];
+	"base:ValueForMoney" -> "base:SpecificRating" [ label = "rdfs:subClassOf" ];
+	"base:NotRecommended" -> "base:Recommendation" [ label = "rdfs:subClassOf" ];
+	"base:InflightEntertainment" -> "base:SpecificRating" [ label = "rdfs:subClassOf" ];
+	"http://www.semanticweb.org/a/ontologies/2024/3/fsso#Good_Wifi&Connectivity" -> "http://www.semanticweb.org/a/ontologies/2024/3/fsso#Wifi&Connectivity" [ label = "rdfs:subClassOf" ];
+	"base:Medium_InflightEntertainment" -> "base:InflightEntertainment" [ label = "rdfs:subClassOf" ];
+	"http://www.semanticweb.org/a/ontologies/2024/3/fsso#Medium_Wifi&Connectivity" -> "http://www.semanticweb.org/a/ontologies/2024/3/fsso#Wifi&Connectivity" [ label = "rdfs:subClassOf" ];
+	"base:Medium_GroundServices" -> "base:GroundServices" [ label = "rdfs:subClassOf" ];
+	"base:InternationalFlight" -> ":PathType" [ label = "rdfs:subClassOf" ];
+	"base:Good_CabinStaff" -> "base:CabinStaff" [ label = "rdfs:subClassOf" ];
+	"http://www.semanticweb.org/a/ontologies/2024/3/fsso#Good_Food&Beverages" -> "http://www.semanticweb.org/a/ontologies/2024/3/fsso#Food&Beverages" [ label = "rdfs:subClassOf" ];
+	"base:SpecificRating" -> "base:Rating" [ label = "rdfs:subClassOf" ];
+	"base:Medium_SeatComfort" -> "base:SeatComfort" [ label = "rdfs:subClassOf" ];
+	"base:Medium_ValueForMoney" -> "base:ValueForMoney" [ label = "rdfs:subClassOf" ];
+	"base:VerifiedSurvey" -> "base:Survey" [ label = "rdfs:subClassOf" ];
+	"base:NonVerifiedSurvey" -> "base:Survey" [ label = "rdfs:subClassOf" ];
+	"base:GroundServices" -> "base:SpecificRating" [ label = "rdfs:subClassOf" ];
+	"http://www.semanticweb.org/a/ontologies/2024/3/fsso#Food&Beverages" -> "base:SpecificRating" [ label = "rdfs:subClassOf" ];
+	"base:Good_GroundServices" -> "base:GroundServices" [ label = "rdfs:subClassOf" ];
+	"http://www.semanticweb.org/a/ontologies/2024/3/fsso#Wifi&Connectivity" -> "base:SpecificRating" [ label = "rdfs:subClassOf" ];
+	"base:CabinStaff" -> "base:SpecificRating" [ label = "rdfs:subClassOf" ];
+	"http://www.semanticweb.org/a/ontologies/2024/3/fsso#Bad_Wifi&Connectivity" -> "http://www.semanticweb.org/a/ontologies/2024/3/fsso#Wifi&Connectivity" [ label = "rdfs:subClassOf" ];
+	"base:Bad_InflightEntertainment" -> "base:InflightEntertainment" [ label = "rdfs:subClassOf" ];
+	"base:Good_InflightEntertainment" -> "base:InflightEntertainment" [ label = "rdfs:subClassOf" ];
+	"base:ConnectingFlight" -> "base:FlightNumber" [ label = "rdfs:subClassOf" ];
+
+}

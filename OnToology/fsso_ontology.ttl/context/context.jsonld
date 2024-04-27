@@ -1,0 +1,346 @@
+{
+  "@context" : {
+    "DomesticFlight" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/DomesticFlight"
+    },
+    "hasPublicationDate" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasPublicationDate",
+      "@type" : "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "flightHasSurvey" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/flightHasSurvey",
+      "@type" : "@id"
+    },
+    "hasSurveyID" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasSurveyID",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "hasRating" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasRating",
+      "@type" : "@id"
+    },
+    "Bad_GroundServices" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/Bad_GroundServices"
+    },
+    "Airliner" : {
+      "@id" : "https://dbpedia.org/page/Airliner"
+    },
+    "Medium_ValueForMoney" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/Medium_ValueForMoney"
+    },
+    "NonVerifiedSurvey" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/NonVerifiedSurvey"
+    },
+    "Recommendation" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/Recommendation"
+    },
+    "ConnectingFlight" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/ConnectingFlight"
+    },
+    "hasGroundServicesOutOf10" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasGroundServicesOutOf10"
+    },
+    "Good_InflightEntertainment" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/Good_InflightEntertainment"
+    },
+    "Country" : {
+      "@id" : "https://dbpedia.org/page/Country"
+    },
+    "hasAirliner" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasAirliner",
+      "@type" : "@id"
+    },
+    "Medium_OverallRating" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/Medium_OverallRating"
+    },
+    "NonStopFlight" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/NonStopFlight"
+    },
+    "Recommended" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/Recommended"
+    },
+    "topDataProperty" : {
+      "@id" : "http://www.w3.org/2002/07/owl#topDataProperty"
+    },
+    "hasIATA" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasIATA",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "isRuleEnabled" : {
+      "@id" : "http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"
+    },
+    "hasName" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasName"
+    },
+    "hasCabinStaffOutOf10" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasCabinStaffOutOf10"
+    },
+    "hasRecommendation" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasRecommendation",
+      "@type" : "@id"
+    },
+    "hasFlightClass" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasFlightClass",
+      "@type" : "@id"
+    },
+    "isRecommended" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/isRecommended",
+      "@type" : "http://www.w3.org/2001/XMLSchema#boolean"
+    },
+    "FlightNumber" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/FlightNumber"
+    },
+    "hasText" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasText",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "hasComment" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasComment",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "hasDestination" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasDestination",
+      "@type" : "@id"
+    },
+    "hasFlightNumber" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasFlightNumber",
+      "@type" : "@id"
+    },
+    "hasFlightDate" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasFlightDate"
+    },
+    "InternationalFlight" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/InternationalFlight"
+    },
+    "label" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#label"
+    },
+    "Good_ValueForMoney" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/Good_ValueForMoney"
+    },
+    "OverallRating" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/OverallRating"
+    },
+    "Medium_SeatComfort" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/Medium_SeatComfort"
+    },
+    "hasCommentTitle" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasCommentTitle",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "hasCommentBody" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasCommentBody",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "ValueForMoney" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/ValueForMoney"
+    },
+    "InflightEntertainment" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/InflightEntertainment"
+    },
+    "isAboutFlight" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/isAboutFlight",
+      "@type" : "@id"
+    },
+    "Airport" : {
+      "@id" : "https://dbpedia.org/page/Airport"
+    },
+    "Good_GroundServices" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/Good_GroundServices"
+    },
+    "hasFlightDay" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasFlightDay",
+      "@type" : "http://www.w3.org/2001/XMLSchema#int"
+    },
+    "hasFlightHour" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasFlightHour",
+      "@type" : "http://www.w3.org/2001/XMLSchema#int"
+    },
+    "hasNoStops" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasNoStops",
+      "@type" : "http://www.w3.org/2001/XMLSchema#boolean"
+    },
+    "SpecificRating" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/SpecificRating"
+    },
+    "hasAircraftModel" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasAircraftModel",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "GroundServices" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/GroundServices"
+    },
+    "FlightClass" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/FlightClass"
+    },
+    "NotRecommended" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/NotRecommended"
+    },
+    "Medium_InflightEntertainment" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/Medium_InflightEntertainment"
+    },
+    "hasFlightYear" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasFlightYear",
+      "@type" : "http://www.w3.org/2001/XMLSchema#int"
+    },
+    "Good_SeatComfort" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/Good_SeatComfort"
+    },
+    "hasSurveyInfo" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasSurveyInfo"
+    },
+    "hasTravelPurpose" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasTravelPurpose",
+      "@type" : "@id"
+    },
+    "Medium_GroundServices" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/Medium_GroundServices"
+    },
+    "hasFoodBeveragesOutOf10" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasFoodBeveragesOutOf10"
+    },
+    "Bad_CabinStaff" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/Bad_CabinStaff"
+    },
+    "Passenger" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/Passenger"
+    },
+    "Bad_InflightEntertainment" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/Bad_InflightEntertainment"
+    },
+    "hasPassengerName" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasPassengerName",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Survey" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/Survey"
+    },
+    "hasOverallRatingOutOf10" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasOverallRatingOutOf10"
+    },
+    "hasFlightMinute" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasFlightMinute",
+      "@type" : "http://www.w3.org/2001/XMLSchema#int"
+    },
+    "hasCountryOfResidence" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasCountryOfResidence",
+      "@type" : "@id"
+    },
+    "SeatComfort" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/SeatComfort"
+    },
+    "isVerified" : {
+      "@id" : "https://dbpedia.org/page/Airliner#isVerified",
+      "@type" : "http://www.w3.org/2001/XMLSchema#boolean"
+    },
+    "Rating" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/Rating"
+    },
+    "wrote" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/wrote",
+      "@type" : "@id"
+    },
+    "Good_OverallRating" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/Good_OverallRating"
+    },
+    "hasValueForMoneyOutOf10" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasValueForMoneyOutOf10"
+    },
+    "VerifiedSurvey" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/VerifiedSurvey"
+    },
+    "Medium_CabinStaff" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/Medium_CabinStaff"
+    },
+    "Connectivity" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso#Wifi&Connectivity"
+    },
+    "hasRatingOutOf10" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasRatingOutOf10",
+      "@type" : "http://www.w3.org/2001/XMLSchema#int"
+    },
+    "Beverages" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso#Medium_Food&Beverages"
+    },
+    "hasFlightDateTime" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasFlightDateTime"
+    },
+    "PathType" : {
+      "@id" : "https://dbpedia.org/page/Airliner#PathType"
+    },
+    "Bad_OverallRating" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/Bad_OverallRating"
+    },
+    "Airline" : {
+      "@id" : "https://dbpedia.org/page/Airline"
+    },
+    "Flight" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/Flight"
+    },
+    "CabinStaff" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/CabinStaff"
+    },
+    "hasStop" : {
+      "@id" : "https://dbpedia.org/page/Airliner#hasStop",
+      "@type" : "@id"
+    },
+    "hasOrigin" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasOrigin",
+      "@type" : "@id"
+    },
+    "hasFlightMonth" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasFlightMonth",
+      "@type" : "http://www.w3.org/2001/XMLSchema#int"
+    },
+    "hasAirline" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasAirline",
+      "@type" : "@id"
+    },
+    "hasInflightEntertainmentOutOf10" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasInflightEntertainmentOutOf10"
+    },
+    "sameAs" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#sameAs"
+    },
+    "comment" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#comment"
+    },
+    "Good_CabinStaff" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/Good_CabinStaff"
+    },
+    "hasFlightTime" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasFlightTime"
+    },
+    "hasWifiConnectivityOutOf10" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasWifiConnectivityOutOf10"
+    },
+    "Bad_ValueForMoney" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/Bad_ValueForMoney"
+    },
+    "isWrittenBy" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/isWrittenBy",
+      "@type" : "@id"
+    },
+    "hasAirportName" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasAirportName",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "hasAirlineName" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasAirlineName",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Bad_SeatComfort" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/Bad_SeatComfort"
+    },
+    "hasSeatComfortOutOf10" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasSeatComfortOutOf10"
+    },
+    "isLocatedIn" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/isLocatedIn",
+      "@type" : "@id"
+    },
+    "TravelPurpose" : {
+      "@id" : "http://www.semanticweb.org/a/ontologies/2024/3/fsso/TravelPurpose"
+    }
+  }
+}

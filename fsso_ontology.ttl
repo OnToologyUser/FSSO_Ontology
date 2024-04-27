@@ -1,0 +1,2634 @@
+@prefix : <http://www.semanticweb.org/a/ontologies/2024/3/fsso/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/a/ontologies/2024/3/fsso/> .
+
+<http://www.semanticweb.org/a/ontologies/2024/3/fsso> rdf:type owl:Ontology ;
+                                                       owl:versionIRI <http://www.semanticweb.org/a/ontologies/2024/3/fsso/1.0.0> .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled
+<http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#sameAs
+rdfs:sameAs rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#flightHasSurvey
+:flightHasSurvey rdf:type owl:ObjectProperty ;
+                 owl:inverseOf :isAboutFlight ;
+                 rdfs:domain :Flight ;
+                 rdfs:range :Survey .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#hasFlightNumber
+:hasFlightNumber rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Flight ;
+                 rdfs:range :FlightNumber .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#hasRating
+:hasRating rdf:type owl:ObjectProperty ;
+           rdfs:domain :Survey ;
+           rdfs:range :Rating .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasAirline
+:hasAirline rdf:type owl:ObjectProperty ;
+            rdfs:domain :FlightNumber ;
+            rdfs:range <https://dbpedia.org/page/Airline> .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasAirliner
+:hasAirliner rdf:type owl:ObjectProperty ;
+             rdfs:domain :Flight ;
+             rdfs:range <https://dbpedia.org/page/Airliner> .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasCountryOfResidence
+:hasCountryOfResidence rdf:type owl:ObjectProperty ;
+                       rdfs:domain :Passenger ;
+                       rdfs:range <https://dbpedia.org/page/Country> .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasDestination
+:hasDestination rdf:type owl:ObjectProperty ;
+                rdfs:domain :FlightNumber ;
+                rdfs:range <https://dbpedia.org/page/Airport> .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasFlightClass
+:hasFlightClass rdf:type owl:ObjectProperty ;
+                rdfs:domain :Survey ;
+                rdfs:range :FlightClass .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasOrigin
+:hasOrigin rdf:type owl:ObjectProperty ;
+           rdfs:domain :FlightNumber ;
+           rdfs:range <https://dbpedia.org/page/Airport> .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasRecommendation
+:hasRecommendation rdf:type owl:ObjectProperty ;
+                   rdfs:domain :Survey ;
+                   rdfs:range :Recommendation .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasTravelPurpose
+:hasTravelPurpose rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Survey ;
+                  rdfs:range :TravelPurpose .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/isAboutFlight
+:isAboutFlight rdf:type owl:ObjectProperty ;
+               rdfs:domain :Survey ;
+               rdfs:range :Flight .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/isLocatedIn
+:isLocatedIn rdf:type owl:ObjectProperty ;
+             rdfs:domain <https://dbpedia.org/page/Airport> ;
+             rdfs:range <https://dbpedia.org/page/Country> .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/isWrittenBy
+:isWrittenBy rdf:type owl:ObjectProperty ;
+             owl:inverseOf :wrote ;
+             rdfs:domain :Survey ;
+             rdfs:range :Passenger .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/wrote
+:wrote rdf:type owl:ObjectProperty ;
+       rdfs:domain :Passenger ;
+       rdfs:range :Survey .
+
+
+###  https://dbpedia.org/page/Airliner#hasStop
+<https://dbpedia.org/page/Airliner#hasStop> rdf:type owl:ObjectProperty ;
+                                            rdfs:domain :FlightNumber ;
+                                            rdfs:range <https://dbpedia.org/page/Airport> .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#hasAircraftModel
+:hasAircraftModel rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf :hasName ;
+                  rdfs:domain <https://dbpedia.org/page/Airliner> ;
+                  rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#hasAirlineName
+:hasAirlineName rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf :hasName ;
+                rdfs:domain <https://dbpedia.org/page/Airline> ;
+                rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#hasAirportName
+:hasAirportName rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf :hasName ;
+                rdfs:domain <https://dbpedia.org/page/Airport> ;
+                rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#hasCabinStaffOutOf10
+:hasCabinStaffOutOf10 rdf:type owl:DatatypeProperty ;
+                      rdfs:subPropertyOf :hasRatingOutOf10 .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#hasComment
+:hasComment rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf :hasSurveyInfo ;
+            rdfs:domain :Survey ;
+            rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#hasCommentBody
+:hasCommentBody rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf :hasComment ;
+                rdfs:domain :Survey ;
+                rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#hasCommentTitle
+:hasCommentTitle rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf :hasComment ;
+                 rdfs:domain :Survey ;
+                 rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#hasFoodBeveragesOutOf10
+:hasFoodBeveragesOutOf10 rdf:type owl:DatatypeProperty ;
+                         rdfs:subPropertyOf :hasRatingOutOf10 .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#hasGroundServicesOutOf10
+:hasGroundServicesOutOf10 rdf:type owl:DatatypeProperty ;
+                          rdfs:subPropertyOf :hasRatingOutOf10 .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#hasInflightEntertainmentOutOf10
+:hasInflightEntertainmentOutOf10 rdf:type owl:DatatypeProperty ;
+                                 rdfs:subPropertyOf :hasRatingOutOf10 .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#hasNoStops
+:hasNoStops rdf:type owl:DatatypeProperty ;
+            rdfs:domain :FlightNumber ;
+            rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#hasOverallRatingOutOf10
+:hasOverallRatingOutOf10 rdf:type owl:DatatypeProperty ;
+                         rdfs:subPropertyOf :hasRatingOutOf10 .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#hasPassengerName
+:hasPassengerName rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf :hasName ;
+                  rdfs:domain :Passenger ;
+                  rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#hasSeatComfortOutOf10
+:hasSeatComfortOutOf10 rdf:type owl:DatatypeProperty ;
+                       rdfs:subPropertyOf :hasRatingOutOf10 .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#hasSurveyInfo
+:hasSurveyInfo rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Survey .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#hasValueForMoneyOutOf10
+:hasValueForMoneyOutOf10 rdf:type owl:DatatypeProperty ;
+                         rdfs:subPropertyOf :hasRatingOutOf10 .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#hasWifiConnectivityOutOf10
+:hasWifiConnectivityOutOf10 rdf:type owl:DatatypeProperty ;
+                            rdfs:subPropertyOf :hasRatingOutOf10 .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#isRecommended
+:isRecommended rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf :hasSurveyInfo ;
+               rdfs:domain :Survey ;
+               rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasFlightDate
+:hasFlightDate rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf :hasFlightDateTime .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasFlightDateTime
+:hasFlightDateTime rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf owl:topDataProperty ;
+                   rdfs:domain :Flight .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasFlightDay
+:hasFlightDay rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf :hasFlightDate ;
+              rdfs:range xsd:int .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasFlightHour
+:hasFlightHour rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf :hasFlightTime ;
+               rdfs:range xsd:int .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasFlightMinute
+:hasFlightMinute rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf :hasFlightTime ;
+                 rdfs:range xsd:int .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasFlightMonth
+:hasFlightMonth rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf :hasFlightDate ;
+                rdfs:range xsd:int .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasFlightTime
+:hasFlightTime rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf :hasFlightDateTime .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasFlightYear
+:hasFlightYear rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf :hasFlightDate ;
+               rdfs:range xsd:int .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasIATA
+:hasIATA rdf:type owl:DatatypeProperty ;
+         rdfs:subPropertyOf owl:topDataProperty ;
+         rdfs:domain <https://dbpedia.org/page/Airport> ;
+         rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasName
+:hasName rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasPublicationDate
+:hasPublicationDate rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf :hasSurveyInfo ;
+                    rdfs:domain :Survey ;
+                    rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasRatingOutOf10
+:hasRatingOutOf10 rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf :hasSurveyInfo ;
+                  rdfs:domain :Survey ;
+                  rdfs:range xsd:int .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasSurveyID
+:hasSurveyID rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf :hasSurveyInfo ;
+             rdfs:domain :Survey ;
+             rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/hasText
+:hasText rdf:type owl:DatatypeProperty ;
+         rdfs:range xsd:string .
+
+
+###  https://dbpedia.org/page/Airliner#isVerified
+<https://dbpedia.org/page/Airliner#isVerified> rdf:type owl:DatatypeProperty ;
+                                               rdfs:subPropertyOf :hasSurveyInfo ;
+                                               rdfs:domain :Survey ;
+                                               rdfs:range xsd:boolean .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#Bad_CabinStaff
+:Bad_CabinStaff rdf:type owl:Class ;
+                rdfs:subClassOf :CabinStaff ;
+                rdfs:comment "A bad cabin staff rating inferred by a rating of 4 or less out of 10 given by a passenger about a flight." ;
+                rdfs:label "Bad_CabinStaff" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#Bad_GroundServices
+:Bad_GroundServices rdf:type owl:Class ;
+                    rdfs:subClassOf :GroundServices ;
+                    rdfs:comment "A bad ground services rating inferred by a rating of 4 or less out of 10 given by a passenger about a flight." ;
+                    rdfs:label "Bad_GroundServices" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#Bad_InflightEntertainment
+:Bad_InflightEntertainment rdf:type owl:Class ;
+                           rdfs:subClassOf :InflightEntertainment ;
+                           rdfs:comment "A bad inflight entertainment rating inferred by a rating of 4 or less out of 10 given by a passenger about a flight." ;
+                           rdfs:label "Bad_InflightEntertainment" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#Bad_OverallRating
+:Bad_OverallRating rdf:type owl:Class ;
+                   rdfs:subClassOf :OverallRating ;
+                   rdfs:comment "A bad overall rating inferred by a rating of 4 or less out of 10 given by a passenger about a flight." ;
+                   rdfs:label "Bad_OverallRating" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#Bad_SeatComfort
+:Bad_SeatComfort rdf:type owl:Class ;
+                 rdfs:subClassOf :SeatComfort ;
+                 rdfs:comment "A bad seat comfort rating inferred by a rating of 4 or less out of 10 given by a passenger about a flight." ;
+                 rdfs:label "Bad_SeatComfort" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#Bad_ValueForMoney
+:Bad_ValueForMoney rdf:type owl:Class ;
+                   rdfs:subClassOf :ValueForMoney ;
+                   rdfs:comment "A bad value for moeny rating inferred by a rating of 4 or less out of 10 given by a passenger about a flight." ;
+                   rdfs:label "Bad_ValueForMoney" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#Flight
+:Flight rdf:type owl:Class ;
+        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                          owl:onProperty :flightHasSurvey ;
+                          owl:someValuesFrom :Survey
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasFlightNumber ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :FlightNumber
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasAirliner ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass <https://dbpedia.org/page/Airliner>
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasFlightDay ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:int
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasFlightHour ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:int
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasFlightMinute ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:int
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasFlightMonth ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:int
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasFlightYear ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:int
+                        ] ;
+        rdfs:comment "A specific flight that travelled in a date and time with a specific airliner (aircraft model) where passengers were given a satisfaction survey." ;
+        rdfs:label "Flight" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#Good_CabinStaff
+:Good_CabinStaff rdf:type owl:Class ;
+                 rdfs:subClassOf :CabinStaff ;
+                 rdfs:comment "A good cabin staff rating inferred by a rating of 7 or more out of 10 given by a passenger about a flight." ;
+                 rdfs:label "Good_CabinStaff" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#Good_GroundServices
+:Good_GroundServices rdf:type owl:Class ;
+                     rdfs:subClassOf :GroundServices ;
+                     rdfs:comment "A good ground services rating inferred by a rating of 7 or more out of 10 given by a passenger about a flight." ;
+                     rdfs:label "Good_GroundServices" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#Good_InflightEntertainment
+:Good_InflightEntertainment rdf:type owl:Class ;
+                            rdfs:subClassOf :InflightEntertainment ;
+                            rdfs:comment "A good inflight entertainment rating inferred by a rating of 7 or more out of 10 given by a passenger about a flight." ;
+                            rdfs:label "Good_InflightEntertainment" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#Good_OverallRating
+:Good_OverallRating rdf:type owl:Class ;
+                    rdfs:subClassOf :OverallRating ;
+                    rdfs:comment "A good overall rating inferred by a rating of 7 or more out of 10 given by a passenger about a flight." ;
+                    rdfs:label "Good_OverallRating" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#Good_SeatComfort
+:Good_SeatComfort rdf:type owl:Class ;
+                  rdfs:subClassOf :SeatComfort ;
+                  rdfs:comment "A good seat comfort rating inferred by a rating of 7 or more out of 10 given by a passenger about a flight." ;
+                  rdfs:label "Good_SeatComfort" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#Good_ValueForMoney
+:Good_ValueForMoney rdf:type owl:Class ;
+                    rdfs:subClassOf :ValueForMoney ;
+                    rdfs:comment "A good value for money rating inferred by a rating of 7 or more out of 10 given by a passenger about a flight." ;
+                    rdfs:label "Good_ValueForMoney" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#Medium_CabinStaff
+:Medium_CabinStaff rdf:type owl:Class ;
+                   rdfs:subClassOf :CabinStaff ;
+                   rdfs:comment "A medium cabin staff rating inferred by a rating of 5 or 6 out of 10 given by a passenger about a flight." ;
+                   rdfs:label "Medium_CabinStaff" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#Medium_GroundServices
+:Medium_GroundServices rdf:type owl:Class ;
+                       rdfs:subClassOf :GroundServices ;
+                       rdfs:comment "A medium ground services rating inferred by a rating of 5 or 6 out of 10 given by a passenger about a flight." ;
+                       rdfs:label "Medium_GroundServices" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#Medium_InflightEntertainment
+:Medium_InflightEntertainment rdf:type owl:Class ;
+                              rdfs:subClassOf :InflightEntertainment ;
+                              rdfs:comment "A medium inflight entertainment rating inferred by a rating of 5 or 6 out of 10 given by a passenger about a flight." ;
+                              rdfs:label "Medium_InflightEntertainment" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#Medium_OverallRating
+:Medium_OverallRating rdf:type owl:Class ;
+                      rdfs:subClassOf :OverallRating ;
+                      rdfs:comment "A medium overall rating inferred by a rating of 5 or 6 out of 10 given by a passenger about a flight." ;
+                      rdfs:label "Medium_OverallRating" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#Medium_SeatComfort
+:Medium_SeatComfort rdf:type owl:Class ;
+                    rdfs:subClassOf :SeatComfort ;
+                    rdfs:comment "A medium seat comfort rating inferred by a rating of 5 or 6 out of 10 given by a passenger about a flight." ;
+                    rdfs:label "Medium_SeatComfort" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#Medium_ValueForMoney
+:Medium_ValueForMoney rdf:type owl:Class ;
+                      rdfs:subClassOf :ValueForMoney ;
+                      rdfs:comment "A medium value for money rating inferred by a rating of 5 or 6 out of 10 given by a passenger about a flight." ;
+                      rdfs:label "Medium_ValueForMoney" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#Bad_Food&Beverages
+<http://www.semanticweb.org/a/ontologies/2024/3/fsso#Bad_Food&Beverages> rdf:type owl:Class ;
+                                                                         rdfs:subClassOf <http://www.semanticweb.org/a/ontologies/2024/3/fsso#Food&Beverages> ;
+                                                                         rdfs:comment "A bad food and beverages rating inferred by a rating of 4 or less out of 10 given by a passenger about a flight." ;
+                                                                         rdfs:label "Bad_Food&Beverages" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#Bad_Wifi&Connectivity
+<http://www.semanticweb.org/a/ontologies/2024/3/fsso#Bad_Wifi&Connectivity> rdf:type owl:Class ;
+                                                                            rdfs:subClassOf <http://www.semanticweb.org/a/ontologies/2024/3/fsso#Wifi&Connectivity> ;
+                                                                            rdfs:comment "A bad wifi and connectivity rating inferred by a rating of 4 or less out of 10 given by a passenger about a flight." ;
+                                                                            rdfs:label "Bad_Wifi&Connectivity" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#Food&Beverages
+<http://www.semanticweb.org/a/ontologies/2024/3/fsso#Food&Beverages> rdf:type owl:Class ;
+                                                                     rdfs:subClassOf :SpecificRating ,
+                                                                                     [ rdf:type owl:Restriction ;
+                                                                                       owl:onProperty :hasFoodBeveragesOutOf10 ;
+                                                                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                       owl:onDataRange xsd:int
+                                                                                     ] ;
+                                                                     rdfs:comment "A specific rating (good, medium or bad) given by a passenger about the food and beverages offered in the flight." ;
+                                                                     rdfs:label "Food&Beverages" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#Good_Food&Beverages
+<http://www.semanticweb.org/a/ontologies/2024/3/fsso#Good_Food&Beverages> rdf:type owl:Class ;
+                                                                          rdfs:subClassOf <http://www.semanticweb.org/a/ontologies/2024/3/fsso#Food&Beverages> ;
+                                                                          rdfs:comment "A good food and beverages rating inferred by a rating of 7 or more out of 10 given by a passenger about a flight." ;
+                                                                          rdfs:label "Good_Food&Beverages" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#Good_Wifi&Connectivity
+<http://www.semanticweb.org/a/ontologies/2024/3/fsso#Good_Wifi&Connectivity> rdf:type owl:Class ;
+                                                                             rdfs:subClassOf <http://www.semanticweb.org/a/ontologies/2024/3/fsso#Wifi&Connectivity> ;
+                                                                             rdfs:comment "A good wifi and connectivity rating inferred by a rating of 7 or more out of 10 given by a passenger about a flight." ;
+                                                                             rdfs:label "Good_Wifi&Connectivity" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#Medium_Food&Beverages
+<http://www.semanticweb.org/a/ontologies/2024/3/fsso#Medium_Food&Beverages> rdf:type owl:Class ;
+                                                                            rdfs:subClassOf <http://www.semanticweb.org/a/ontologies/2024/3/fsso#Food&Beverages> ;
+                                                                            rdfs:comment "A medium food and beverages rating inferred by a rating of 5 or 6 out of 10 given by a passenger about a flight." ;
+                                                                            rdfs:label "Medium_Food&Beverages" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#Medium_Wifi&Connectivity
+<http://www.semanticweb.org/a/ontologies/2024/3/fsso#Medium_Wifi&Connectivity> rdf:type owl:Class ;
+                                                                               rdfs:subClassOf <http://www.semanticweb.org/a/ontologies/2024/3/fsso#Wifi&Connectivity> ;
+                                                                               rdfs:comment "A medium wifi and connectivity rating inferred by a rating of 5 or 6 out of 10 given by a passenger about a flight." ;
+                                                                               rdfs:label "Medium_Wifi&Connectivity" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#Wifi&Connectivity
+<http://www.semanticweb.org/a/ontologies/2024/3/fsso#Wifi&Connectivity> rdf:type owl:Class ;
+                                                                        rdfs:subClassOf :SpecificRating ,
+                                                                                        [ rdf:type owl:Restriction ;
+                                                                                          owl:onProperty :hasWifiConnectivityOutOf10 ;
+                                                                                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                          owl:onDataRange xsd:int
+                                                                                        ] ;
+                                                                        rdfs:comment "A specific rating (good, medium or bad) given by a passenger about the wifi and connectivity quality and optiones offered in the flight." ;
+                                                                        rdfs:label "Wifi&Connectivity" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/CabinStaff
+:CabinStaff rdf:type owl:Class ;
+            rdfs:subClassOf :SpecificRating ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasCabinStaffOutOf10 ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:int
+                            ] ;
+            rdfs:comment "A specific rating (good, medium or bad) given by a passenger about the cabin staff in the flight." ;
+            rdfs:label "CabinStaff" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/ConnectingFlight
+:ConnectingFlight rdf:type owl:Class ;
+                  owl:equivalentClass [ owl:intersectionOf ( :FlightNumber
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty <https://dbpedia.org/page/Airliner#hasStop> ;
+                                                               owl:someValuesFrom <https://dbpedia.org/page/Airport>
+                                                             ]
+                                                           ) ;
+                                        rdf:type owl:Class
+                                      ] ;
+                  rdfs:subClassOf :FlightNumber ;
+                  owl:disjointWith :NonStopFlight ;
+                  rdfs:comment "A flight that requires one or more stops between the origin and destination airports, without changing flight number or aircraft." ;
+                  rdfs:label "ConnectingFlight" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/DomesticFlight
+:DomesticFlight rdf:type owl:Class ;
+                rdfs:subClassOf <https://dbpedia.org/page/Airliner#PathType> ;
+                owl:disjointWith :InternationalFlight ;
+                rdfs:comment "A flight which origin and destination airport are located in the some country." ;
+                rdfs:label "DomesticFlight" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/FlightClass
+:FlightClass rdf:type owl:Class ;
+             rdfs:comment "A flight class that represents the quality of cabin, seat and service selected by the passenger: EconomyClass, PremiumEconomyClass, BusinessClass, FirstClass." ;
+             rdfs:label "FlightClass" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/FlightNumber
+:FlightNumber rdf:type owl:Class ;
+              rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                owl:onProperty :hasAirline ;
+                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://dbpedia.org/page/Airline>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :hasDestination ;
+                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://dbpedia.org/page/Airport>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :hasOrigin ;
+                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://dbpedia.org/page/Airport>
+                              ] ;
+              rdfs:comment "A commercial flight identified by flight number that has an origin and a destination airport provided by an airline." ;
+              rdfs:label "FlightNumber" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/GroundServices
+:GroundServices rdf:type owl:Class ;
+                rdfs:subClassOf :SpecificRating ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :hasGroundServicesOutOf10 ;
+                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:int
+                                ] ;
+                rdfs:comment "A specific rating (good, medium or bad) given by a passenger about the ground services offered in the flight." ;
+                rdfs:label "GroundServices" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/InflightEntertainment
+:InflightEntertainment rdf:type owl:Class ;
+                       rdfs:subClassOf :SpecificRating ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :hasInflightEntertainmentOutOf10 ;
+                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange xsd:int
+                                       ] ;
+                       rdfs:comment "A specific rating (good, medium or bad) given by a passenger about the inflight entertainment options offered in the flight." ;
+                       rdfs:label "InflightEntertainment" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/InternationalFlight
+:InternationalFlight rdf:type owl:Class ;
+                     rdfs:subClassOf <https://dbpedia.org/page/Airliner#PathType> ;
+                     rdfs:comment "A flight which origin and destination airports are located in different countries." ;
+                     rdfs:label "InternationalFlight" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/NonStopFlight
+:NonStopFlight rdf:type owl:Class ;
+               owl:equivalentClass [ owl:intersectionOf ( :FlightNumber
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty :hasNoStops ;
+                                                            owl:hasValue "true"^^xsd:boolean
+                                                          ]
+                                                        ) ;
+                                     rdf:type owl:Class
+                                   ] ;
+               rdfs:subClassOf :FlightNumber ;
+               rdfs:comment "A flight that makes no stops between origin and destination airports." ;
+               rdfs:label "NonStopFlight" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/NonVerifiedSurvey
+:NonVerifiedSurvey rdf:type owl:Class ;
+                   owl:equivalentClass [ owl:intersectionOf ( :Survey
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty <https://dbpedia.org/page/Airliner#isVerified> ;
+                                                                owl:hasValue "false"^^xsd:boolean
+                                                              ]
+                                                            ) ;
+                                         rdf:type owl:Class
+                                       ] ;
+                   rdfs:subClassOf :Survey ;
+                   owl:disjointWith :VerifiedSurvey ;
+                   rdfs:comment "A non-verified satisfaction survey filled by a passenger about a flight. It has not been verified that the passenger took the flight for which it has filled the survey." ;
+                   rdfs:label "NonVerifiedSurvey" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/NotRecommended
+:NotRecommended rdf:type owl:Class ;
+                owl:equivalentClass [ rdf:type owl:Restriction ;
+                                      owl:onProperty :isRecommended ;
+                                      owl:hasValue "false"^^xsd:boolean
+                                    ] ;
+                rdfs:subClassOf :Recommendation ;
+                owl:disjointWith :Recommended ;
+                rdfs:comment "A negative recommendation by the passenger, representing that they do not recommend the flight." ;
+                rdfs:label "NotRecommended" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/OverallRating
+:OverallRating rdf:type owl:Class ;
+               rdfs:subClassOf :Rating ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasOverallRatingOutOf10 ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:int
+                               ] ;
+               rdfs:comment "The overall rating (good, medium or bad) inferred from the 0 to 10 points rating given by a passenger about a flight." ;
+               rdfs:label "OverallRating" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/Passenger
+:Passenger rdf:type owl:Class ;
+           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasCountryOfResidence ;
+                                 owl:someValuesFrom <https://dbpedia.org/page/Country>
+                               ] ;
+           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                             owl:onProperty :wrote ;
+                             owl:someValuesFrom :Survey
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasCountryOfResidence ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass <https://dbpedia.org/page/Country>
+                           ] ;
+           rdfs:comment "A traveller that has taken a flight." ;
+           rdfs:label "Passenger" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/Rating
+:Rating rdf:type owl:Class ;
+        rdfs:comment "A rating given by a passenger about the flight." ;
+        rdfs:label "Rating" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/Recommendation
+:Recommendation rdf:type owl:Class ;
+                rdfs:comment "A recommendation, either yes or no, given by the passenger, representing if they would recommend the flight." ;
+                rdfs:label "Recommendation" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/Recommended
+:Recommended rdf:type owl:Class ;
+             owl:equivalentClass [ rdf:type owl:Restriction ;
+                                   owl:onProperty :isRecommended ;
+                                   owl:hasValue "true"^^xsd:boolean
+                                 ] ;
+             rdfs:subClassOf :Recommendation ;
+             rdfs:comment "A positive recommendation by the passenger, representing that they recommend the flight." ;
+             rdfs:label "Recommended" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/SeatComfort
+:SeatComfort rdf:type owl:Class ;
+             rdfs:subClassOf :SpecificRating ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasSeatComfortOutOf10 ;
+                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange xsd:int
+                             ] ;
+             rdfs:comment "A specific rating (good, medium or bad) given by a passenger about the seat comfort offered in the flight." ;
+             rdfs:label "SeatComfort" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/SpecificRating
+:SpecificRating rdf:type owl:Class ;
+                rdfs:subClassOf :Rating ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :hasValueForMoneyOutOf10 ;
+                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:int
+                                ] ;
+                rdfs:comment "A specific rating (good, medium or bad) inferred by the rating out of 10 given by a passenger about some service provided by the airliner in the flight." ;
+                rdfs:label "SpecificRating" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/Survey
+:Survey rdf:type owl:Class ;
+        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                          owl:onProperty :isAboutFlight ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Flight
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasCommentBody ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:string
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasCommentTitle ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:string
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasOverallRatingOutOf10 ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:int
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :isRecommended ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:boolean
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasPublicationDate ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:dateTime
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasSurveyID ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:string
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty <https://dbpedia.org/page/Airliner#isVerified> ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:boolean
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasFoodBeveragesOutOf10 ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:int
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasGroundServicesOutOf10 ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:int
+                        ] ;
+        rdfs:comment "A satisfaction survey filled by a passenger about a flight." ;
+        rdfs:label "Survey" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/TravelPurpose
+:TravelPurpose rdf:type owl:Class ;
+               rdfs:comment "The reason the passenger has taken the flight: SoloLeisure, CoupleLeisure, FamilyLeisure, Business." ;
+               rdfs:label "TravelPurpose" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/ValueForMoney
+:ValueForMoney rdf:type owl:Class ;
+               rdfs:subClassOf :SpecificRating ;
+               rdfs:comment "A specific rating (good, medium or bad) given by a passenger about the value for money or quality offered in the flight, cost-effectiveness." ;
+               rdfs:label "ValueForMoney" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/VerifiedSurvey
+:VerifiedSurvey rdf:type owl:Class ;
+                owl:equivalentClass [ owl:intersectionOf ( :Survey
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty <https://dbpedia.org/page/Airliner#isVerified> ;
+                                                             owl:hasValue "true"^^xsd:boolean
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
+                                    ] ;
+                rdfs:subClassOf :Survey ;
+                rdfs:comment "A verified satisfaction survey filled by a passenger about a flight. It has been verified that the passenger took the flight for which it has filled the survey." ;
+                rdfs:label "VerifiedSurvey" .
+
+
+###  https://dbpedia.org/page/Airline
+<https://dbpedia.org/page/Airline> rdf:type owl:Class ;
+                                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                     owl:onProperty :hasAirlineName ;
+                                                     owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                     owl:onDataRange xsd:string
+                                                   ] ;
+                                   rdfs:comment "A commercial airline company." ;
+                                   rdfs:label "Airline" .
+
+
+###  https://dbpedia.org/page/Airliner
+<https://dbpedia.org/page/Airliner> rdf:type owl:Class ;
+                                    rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                      owl:onProperty :hasAircraftModel ;
+                                                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                      owl:onDataRange xsd:string
+                                                    ] ;
+                                    rdfs:comment "A commercial airliner or aircraft model used to transport passengers." ;
+                                    rdfs:label "Airliner" .
+
+
+###  https://dbpedia.org/page/Airport
+<https://dbpedia.org/page/Airport> rdf:type owl:Class ;
+                                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                     owl:onProperty :hasIATA ;
+                                                     owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                     owl:onDataRange xsd:string
+                                                   ] ;
+                                   rdfs:comment "An airport that is identified by its IATA." ;
+                                   rdfs:label "Airport" .
+
+
+###  https://dbpedia.org/page/Country
+<https://dbpedia.org/page/Country> rdf:type owl:Class ;
+                                   rdfs:comment "A country of the world." ;
+                                   rdfs:label "Country" .
+
+
+###  https://dbpedia.org/page/Airliner#PathType
+<https://dbpedia.org/page/Airliner#PathType> rdf:type owl:Class ;
+                                             rdfs:subClassOf :FlightNumber ;
+                                             rdfs:comment "Identifies the path type of the flight, whether it is a domestic or an international flight." ;
+                                             rdfs:label "PathType" .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#Business
+:Business rdf:type owl:NamedIndividual ,
+                   :TravelPurpose .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#BusinessClass
+:BusinessClass rdf:type owl:NamedIndividual ,
+                        :FlightClass .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#CB2020RYN123
+:CB2020RYN123 rdf:type owl:NamedIndividual ;
+              :hasText "Really impressed! You get what you pay for, this flight only cost £19.99. The seats were soft, and there was tons of legroom! (not in an emergency exit) The cabin was spotless. The colours were a little bright but it was good. Cheap and no frills! Highly recommend, flies almost everywhere." .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#CB285RYN123
+:CB285RYN123 rdf:type owl:NamedIndividual ;
+             :hasText "Flight left the gate ahead of schedule, fare was really cheap and cabin crew were welcoming and friendly. Flight was so much cheaper than Aer Lingus and flying with Ryanair is a much better experience." .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#CT2020RYN123
+:CT2020RYN123 rdf:type owl:NamedIndividual ;
+              :hasText "Really impressed!" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#CT285RYN123
+:CT285RYN123 rdf:type owl:NamedIndividual ;
+             :hasText "cabin crew were welcoming and friendly" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#CoupleLeisure
+:CoupleLeisure rdf:type owl:NamedIndividual ,
+                        :TravelPurpose .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#EconomyClass
+:EconomyClass rdf:type owl:NamedIndividual ,
+                       :FlightClass .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#FamilyLeisure
+:FamilyLeisure rdf:type owl:NamedIndividual ,
+                        :TravelPurpose .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#FirstClass
+:FirstClass rdf:type owl:NamedIndividual ,
+                     :FlightClass .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#Passenger2020
+:Passenger2020 rdf:type owl:NamedIndividual ,
+                        :Passenger ;
+               :hasCountryOfResidence :UnitedStates .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#Passenger285
+:Passenger285 rdf:type owl:NamedIndividual ,
+                       :Passenger ;
+              :hasCountryOfResidence :Qatar .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#Passenger5063
+:Passenger5063 rdf:type owl:NamedIndividual ,
+                        :Passenger ;
+               :hasCountryOfResidence :Qatar .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#Passenger988
+:Passenger988 rdf:type owl:NamedIndividual ,
+                       :Passenger ;
+              :hasCountryOfResidence :UnitedKingdom .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#PremiumEconomyClass
+:PremiumEconomyClass rdf:type owl:NamedIndividual ,
+                              :FlightClass .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#QatarAirways230_20231216T2230
+:QatarAirways230_20231216T2230 rdf:type owl:NamedIndividual ,
+                                        :Flight ;
+                               :hasFlightNumber :QatarAirways230 ;
+                               :hasAirliner :Airbus380 ;
+                               :hasFlightDay "16"^^xsd:int ;
+                               :hasFlightHour "22"^^xsd:int ;
+                               :hasFlightMinute "30"^^xsd:int ;
+                               :hasFlightMonth "12"^^xsd:int ;
+                               :hasFlightYear "2023"^^xsd:int .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#QatarAirways456_20231124T1020
+:QatarAirways456_20231124T1020 rdf:type owl:NamedIndividual ,
+                                        :Flight ;
+                               :hasFlightNumber :QatarAirways456 ;
+                               :hasAirliner :Boeing787 ;
+                               :hasFlightDay "24"^^xsd:int ;
+                               :hasFlightHour "10"^^xsd:int ;
+                               :hasFlightMinute "20"^^xsd:int ;
+                               :hasFlightMonth "11"^^xsd:int ;
+                               :hasFlightYear "2023"^^xsd:int .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#Ryanair123_20231010T0800
+:Ryanair123_20231010T0800 rdf:type owl:NamedIndividual ,
+                                   :Flight ;
+                          :hasFlightNumber :Ryanair123 ;
+                          :hasAirliner :Boeing777 ;
+                          :hasFlightDay "10"^^xsd:int ;
+                          :hasFlightHour "08"^^xsd:int ;
+                          :hasFlightMinute "00"^^xsd:int ;
+                          :hasFlightMonth "10"^^xsd:int ;
+                          :hasFlightYear "2023"^^xsd:int .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#SoloLeisure
+:SoloLeisure rdf:type owl:NamedIndividual ,
+                      :TravelPurpose .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#Survey2
+:Survey2 rdf:type owl:NamedIndividual ,
+                  :Survey ;
+         :hasFlightClass :PremiumEconomyClass ;
+         :hasTravelPurpose :Business ;
+         :isAboutFlight :Ryanair123_20231010T0800 ;
+         :isWrittenBy :Passenger2020 ;
+         :hasCabinStaffOutOf10 "8"^^xsd:int ;
+         :hasCommentBody "Most importantly Ryanair took me from A to B, safe and in a new plane. However, often flying with Ryanair is a tiring thing. The boarding process can simply be a pain as between scanning your pass and effectively letting you on the plane they let passengers stand in line for long time, often in cramped places. Surely it is to assure everyone is there, can board quickly and enable the closing of the doors of the plane on time, but is quite a torture (many other airlines try to avoid such thing, probably with more differentiation of boarding groups). Furthermore, on this specific flight, the crew truly was a pain trying to sell all kind of “Duty Free” (non existing, as it was a domestic flight) items. The announcements took a full 10 minutes on a 60 min flight (sum it up with the safety instructions, buy on board of catering items, pilot’s message(s) etc), reading out all kind of “special offers” for more or less low ranking articles and was loud. Most “refined marketing action” was the seat belts sign to be turned on, for no reason whatsoever (quiet flying conditions), to assure proper sales of articles." ;
+         :hasCommentTitle "a decent offering from Ryanair" ;
+         :hasOverallRatingOutOf10 "6"^^xsd:int ;
+         :hasWifiConnectivityOutOf10 "3"^^xsd:int ;
+         :isRecommended "true"^^xsd:boolean ;
+         :hasPublicationDate "2023-10-10T08:00:00"^^xsd:dateTime ;
+         :hasSurveyID "Survey2" ;
+         <https://dbpedia.org/page/Airliner#isVerified> "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#Survey3
+:Survey3 rdf:type owl:NamedIndividual ,
+                  :Survey ;
+         :hasFlightClass :EconomyClass ;
+         :hasTravelPurpose :FamilyLeisure ;
+         :isAboutFlight :Ryanair123_20231010T0800 ;
+         :isWrittenBy :Passenger285 ;
+         :hasCommentBody "You get what you pay for with Ryanair. Uneventful flight left on time, friendly and efficient crew. Their website for booking and check in has become a bit of nightmare and can be very confusing, used to be lot better in the past." ;
+         :hasCommentTitle "You get what you pay for" ;
+         :hasOverallRatingOutOf10 "8"^^xsd:int ;
+         :hasValueForMoneyOutOf10 "8"^^xsd:int ;
+         :isRecommended "true"^^xsd:boolean ;
+         :hasPublicationDate "2023-10-10T08:00:00"^^xsd:dateTime ;
+         :hasSurveyID "Survey3" ;
+         <https://dbpedia.org/page/Airliner#isVerified> "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#Survey4
+:Survey4 rdf:type owl:NamedIndividual ,
+                  :Survey ;
+         :hasFlightClass :FirstClass ;
+         :hasTravelPurpose :CoupleLeisure ;
+         :isAboutFlight :QatarAirways230_20231216T2230 ;
+         :isWrittenBy :Passenger1280 ;
+         :hasCommentBody "Good experience with Qatar, inflight entertainment was great. The flight wasn't delayed. Checkin was easy and fast for first class. I would mention I was expecting better gluten free options in first class. I mentioned this restriction when I book the flight, but the food they provided was not that good." ;
+         :hasCommentTitle "Great inflight entertainment and experience overall" ;
+         :hasFoodBeveragesOutOf10 "6"^^xsd:int ;
+         :hasInflightEntertainmentOutOf10 "9"^^xsd:int ;
+         :hasOverallRatingOutOf10 "8"^^xsd:int ;
+         :isRecommended "true"^^xsd:boolean ;
+         :hasPublicationDate "2023-11-24T10:20:00"^^xsd:dateTime ;
+         :hasSurveyID "Survey4" ;
+         <https://dbpedia.org/page/Airliner#isVerified> "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#Survey5
+:Survey5 rdf:type owl:NamedIndividual ,
+                  :Survey ;
+         :hasFlightClass :FirstClass ;
+         :hasTravelPurpose :Business ;
+         :isAboutFlight :QatarAirways456_20231124T1020 ;
+         :isWrittenBy :Passenger5063 ;
+         :hasCommentBody "Amazing flight with Qatar. The seat comfort in first class is otherwordly, I had amazing leg room and the seat reclined making a bed. The seats are pretty separated, so I wasn't bothered by other passengers. The wifi and connectivity was great and fast, I could work and connect online without any issues. I'd definitely recommend this flight." ;
+         :hasCommentTitle "Amazing flight with great wifi" ;
+         :hasOverallRatingOutOf10 "10"^^xsd:int ;
+         :hasSeatComfortOutOf10 "10"^^xsd:int ;
+         :hasWifiConnectivityOutOf10 "9"^^xsd:int ;
+         :isRecommended "true"^^xsd:boolean ;
+         :hasPublicationDate "2023-11-24T22:30:00"^^xsd:dateTime ;
+         :hasSurveyID "Survey5" ;
+         <https://dbpedia.org/page/Airliner#isVerified> "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso#Survey6
+:Survey6 rdf:type owl:NamedIndividual ,
+                  :Survey ;
+         :hasFlightClass :EconomyClass ;
+         :hasTravelPurpose :FamilyLeisure ;
+         :isAboutFlight :QatarAirways456_20231124T1020 ;
+         :isWrittenBy :Passenger988 ;
+         :hasCommentBody "Overall a good flight, but I expected more specially when it came to the food and beverage options. The quality of food let a lot to desire. There were not many vegetarian options. Checkin was easy, and wifi connectivity was great." ;
+         :hasCommentTitle "Good flight with Qatar but food could improve" ;
+         :hasFoodBeveragesOutOf10 "3"^^xsd:int ;
+         :hasOverallRatingOutOf10 7 ;
+         :hasWifiConnectivityOutOf10 "9"^^xsd:int ;
+         :isRecommended "true"^^xsd:boolean ;
+         :hasPublicationDate "2023-11-24T22:30:00"^^xsd:dateTime ;
+         :hasSurveyID "Survey6" ;
+         <https://dbpedia.org/page/Airliner#isVerified> "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/Airbus320
+:Airbus320 rdf:type owl:NamedIndividual ,
+                    <https://dbpedia.org/page/Airliner> ;
+           :hasAircraftModel "Airbus 320" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/Airbus380
+:Airbus380 rdf:type owl:NamedIndividual ,
+                    <https://dbpedia.org/page/Airliner> ;
+           :hasAircraftModel "Airbus 380" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/AmericanAirlines
+:AmericanAirlines rdf:type owl:NamedIndividual ,
+                           <https://dbpedia.org/page/Airline> ;
+                  :hasAirlineName "American Airlines" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/Boeing777
+:Boeing777 rdf:type owl:NamedIndividual ,
+                    <https://dbpedia.org/page/Airliner> ;
+           :hasAircraftModel "Boeing 777" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/Boeing787
+:Boeing787 rdf:type owl:NamedIndividual ,
+                    <https://dbpedia.org/page/Airliner> ;
+           :hasAircraftModel "Boeing 787" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/Business
+:Business rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/BusinessClass
+:BusinessClass rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/CB1280RYN123
+:CB1280RYN123 rdf:type owl:NamedIndividual ;
+              :hasText "Flew back from Faro to London Luton Friday 2nd February. Ryanair in both directions was bang on time and smooth flights in both directions.  We always sit in Front for more space and this was very comfortable for just under a 3 hour flight. The cabin crew were polite and efficient with nice sense of humour especially and engagement especially Ethan and his female colleague at the front section. For their human touch [unlike sometimes the stand offish BA crews] merit a 10/10 marking" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/CT1280RYN123
+:CT1280RYN123 rdf:type owl:NamedIndividual ;
+              :hasText "bang on time and smooth flights" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/CoupleLeisure
+:CoupleLeisure rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/EconomyClass
+:EconomyClass rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/FamilyLeisure
+:FamilyLeisure rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/FirstClass
+:FirstClass rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/HIA
+:HIA rdf:type owl:NamedIndividual ,
+              <https://dbpedia.org/page/Airport> ;
+     :isLocatedIn :Qatar ;
+     :hasAirportName "Hamad International Airport" ;
+     :hasIATA "HIA" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/JFK
+:JFK rdf:type owl:NamedIndividual ,
+              <https://dbpedia.org/page/Airport> ;
+     :isLocatedIn :UnitedStates ;
+     :hasAirportName "John F. Kennedy International Airport" ;
+     :hasIATA "JFK" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/LHR
+:LHR rdf:type owl:NamedIndividual ,
+              <https://dbpedia.org/page/Airport> ;
+     :isLocatedIn :UnitedKingdom ;
+     :hasAirportName "Heathrow Airport" ;
+     :hasIATA "LHR" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/LPL
+:LPL rdf:type owl:NamedIndividual ,
+              <https://dbpedia.org/page/Airport> ;
+     :isLocatedIn :UnitedKingdom ;
+     :hasAirportName "LPL" ;
+     :hasName "Liverpool John Lennon Airport" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/Passenger1280
+:Passenger1280 rdf:type owl:NamedIndividual ,
+                        :Passenger ;
+               :hasCountryOfResidence :UnitedKingdom .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/PremiumEconomyClass
+:PremiumEconomyClass rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/Qatar
+:Qatar rdf:type owl:NamedIndividual ,
+                <https://dbpedia.org/page/Country> .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/QatarAirways
+:QatarAirways rdf:type owl:NamedIndividual ,
+                       <https://dbpedia.org/page/Airline> ;
+              :hasAirlineName "Qatar Airways" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/QatarAirways230
+:QatarAirways230 rdf:type owl:NamedIndividual ,
+                          :FlightNumber ;
+                 :hasAirline :QatarAirways ;
+                 :hasDestination :LHR ;
+                 :hasOrigin :HIA ;
+                 :hasNoStops "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/QatarAirways456
+:QatarAirways456 rdf:type owl:NamedIndividual ,
+                          :FlightNumber ;
+                 :hasAirline :QatarAirways ;
+                 :hasDestination :JFK ;
+                 :hasOrigin :HIA ;
+                 <https://dbpedia.org/page/Airliner#hasStop> :LHR .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/Ryanair
+:Ryanair rdf:type owl:NamedIndividual ,
+                  <https://dbpedia.org/page/Airline> ;
+         :hasAirlineName "Ryanair" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/Ryanair123
+:Ryanair123 rdf:type owl:NamedIndividual ,
+                     :FlightNumber ;
+            :hasAirline :Ryanair ;
+            :hasDestination :LPL ;
+            :hasOrigin :LHR ;
+            :hasNoStops "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/SFO
+:SFO rdf:type owl:NamedIndividual ,
+              <https://dbpedia.org/page/Airport> ;
+     :isLocatedIn :UnitedStates ;
+     :hasAirportName "San Francisco International Airport" ;
+     :hasIATA "SFO" .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/SoloLeisure
+:SoloLeisure rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/Survey1
+:Survey1 rdf:type owl:NamedIndividual ,
+                  :Survey ;
+         :hasFlightClass :EconomyClass ;
+         :hasTravelPurpose :SoloLeisure ;
+         :isAboutFlight :Ryanair123_20231010T0800 ;
+         :isWrittenBy :Passenger1280 ;
+         :hasCommentBody "Flew back from Faro to London Luton Friday 2nd February. Ryanair in both directions was bang on time and smooth flights in both directions.  We always sit in Front for more space and this was very comfortable for just under a 3 hour flight. The cabin crew were polite and efficient with nice sense of humour especially and engagement especially Ethan and his female colleague at the front section. For their human touch [unlike sometimes the stand offish BA crews] merit a 10/10 marking" ;
+         :hasCommentTitle "bang on time and smooth flights" ;
+         :hasOverallRatingOutOf10 8 ;
+         :hasWifiConnectivityOutOf10 "7"^^xsd:int ;
+         :isRecommended "true"^^xsd:boolean ;
+         :hasPublicationDate "2023-10-10T10:00:00"^^xsd:dateTime ;
+         :hasSurveyID "Survey1" ;
+         <https://dbpedia.org/page/Airliner#isVerified> "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/UnitedKingdom
+:UnitedKingdom rdf:type owl:NamedIndividual ,
+                        <https://dbpedia.org/page/Country> .
+
+
+###  http://www.semanticweb.org/a/ontologies/2024/3/fsso/UnitedStates
+:UnitedStates rdf:type owl:NamedIndividual ,
+                       <https://dbpedia.org/page/Country> .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :Airbus320
+                        :Airbus380
+                        :Boeing777
+                        :Boeing787
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :AmericanAirlines
+                        :QatarAirways
+                        :Ryanair
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :HIA
+                        :JFK
+                        :LHR
+                        :LPL
+                        :SFO
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :Qatar
+                        :UnitedKingdom
+                        :UnitedStates
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :QatarAirways230
+                        :QatarAirways456
+                        :Ryanair123
+                      )
+] .
+
+
+#################################################################
+#    Rules
+#################################################################
+
+:f rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:a rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:d rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:t rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:c rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:o rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:w rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<urn:swrl:var#o> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<urn:swrl:var#w> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "S28" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Survey ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasCabinStaffOutOf10 ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :o ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :w
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first :w ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 4 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first :w ;
+                                                                                                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                rdf:first 7 ;
+                                                                                                                                                rdf:rest rdf:nil
+                                                                                                                                              ]
+                                                                                                                                   ]
+                                                                                      ] ;
+                                                                            rdf:rest rdf:nil
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Medium_CabinStaff ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "S26" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Survey ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasCabinStaffOutOf10 ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :o ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :w
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThanOrEqual> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first :w ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 7 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Good_CabinStaff ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "S27" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Survey ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasCabinStaffOutOf10 ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :o ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :w
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThanOrEqual> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first :w ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 4 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Bad_CabinStaff ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "S31" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Survey ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasFoodBeveragesOutOf10 ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :o ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :w
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first :w ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 7 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first :w ;
+                                                                                                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                rdf:first 4 ;
+                                                                                                                                                rdf:rest rdf:nil
+                                                                                                                                              ]
+                                                                                                                                   ]
+                                                                                      ] ;
+                                                                            rdf:rest rdf:nil
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.semanticweb.org/a/ontologies/2024/3/fsso#Medium_Food&Beverages> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "S30" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Survey ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasFoodBeveragesOutOf10 ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :o ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :w
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThanOrEqual> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first :w ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 7 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.semanticweb.org/a/ontologies/2024/3/fsso#Good_Food&Beverages> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "S32" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Survey ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasFoodBeveragesOutOf10 ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :o ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :w
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThanOrEqual> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first :w ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 4 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.semanticweb.org/a/ontologies/2024/3/fsso#Bad_Food&Beverages> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "S22" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Survey ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasGroundServicesOutOf10 ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :o ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :w
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first :w ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 4 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first :w ;
+                                                                                                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                rdf:first 7 ;
+                                                                                                                                                rdf:rest rdf:nil
+                                                                                                                                              ]
+                                                                                                                                   ]
+                                                                                      ] ;
+                                                                            rdf:rest rdf:nil
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Medium_GroundServices ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "S20" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Survey ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasGroundServicesOutOf10 ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :o ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :w
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThanOrEqual> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first :w ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 7 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Good_GroundServices ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "S21" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Survey ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasGroundServicesOutOf10 ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :o ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :w
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThanOrEqual> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first :w ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 4 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Bad_GroundServices ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "S34" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Survey ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasInflightEntertainmentOutOf10 ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :o ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :w
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first :w ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 4 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first :w ;
+                                                                                                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                rdf:first 7 ;
+                                                                                                                                                rdf:rest rdf:nil
+                                                                                                                                              ]
+                                                                                                                                   ]
+                                                                                      ] ;
+                                                                            rdf:rest rdf:nil
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Medium_InflightEntertainment ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "S33" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Survey ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasInflightEntertainmentOutOf10 ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :o ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :w
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThanOrEqual> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first :w ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 7 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Good_InflightEntertainment ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "S35" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Survey ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasInflightEntertainmentOutOf10 ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :o ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :w
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThanOrEqual> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first :w ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 4 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Bad_InflightEntertainment ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "S19" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Survey ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasOverallRatingOutOf10 ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :o ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :w
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first :w ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 4 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first :w ;
+                                                                                                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                rdf:first 7 ;
+                                                                                                                                                rdf:rest rdf:nil
+                                                                                                                                              ]
+                                                                                                                                   ]
+                                                                                      ] ;
+                                                                            rdf:rest rdf:nil
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Medium_OverallRating ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "S17" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Survey ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasOverallRatingOutOf10 ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :o ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :w
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThanOrEqual> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first :w ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 7 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Good_OverallRating ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "S18" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Survey ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasOverallRatingOutOf10 ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :o ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :w
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThanOrEqual> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first :w ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 4 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Bad_OverallRating ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "S391" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Survey ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasSeatComfortOutOf10 ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :o ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :w
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first :w ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 4 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first :w ;
+                                                                                                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                rdf:first 7 ;
+                                                                                                                                                rdf:rest rdf:nil
+                                                                                                                                              ]
+                                                                                                                                   ]
+                                                                                      ] ;
+                                                                            rdf:rest rdf:nil
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Medium_SeatComfort ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "S390" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Survey ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasSeatComfortOutOf10 ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :o ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :w
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThanOrEqual> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first :w ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 7 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Good_SeatComfort ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "S392" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Survey ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasSeatComfortOutOf10 ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :o ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :w
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThanOrEqual> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first :w ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 4 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Bad_SeatComfort ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "S37" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Survey ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasValueForMoneyOutOf10 ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :o ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :w
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first :w ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 4 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first :w ;
+                                                                                                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                rdf:first 7 ;
+                                                                                                                                                rdf:rest rdf:nil
+                                                                                                                                              ]
+                                                                                                                                   ]
+                                                                                      ] ;
+                                                                            rdf:rest rdf:nil
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Medium_ValueForMoney ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "S36" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Survey ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasValueForMoneyOutOf10 ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :o ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :w
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThanOrEqual> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first :w ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 7 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Good_ValueForMoney ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "S38" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Survey ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasValueForMoneyOutOf10 ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :o ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :w
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThanOrEqual> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first :w ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 4 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Bad_ValueForMoney ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "S25" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Survey ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasWifiConnectivityOutOf10 ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :o ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :w
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first :w ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 7 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first :w ;
+                                                                                                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                rdf:first 4 ;
+                                                                                                                                                rdf:rest rdf:nil
+                                                                                                                                              ]
+                                                                                                                                   ]
+                                                                                      ] ;
+                                                                            rdf:rest rdf:nil
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.semanticweb.org/a/ontologies/2024/3/fsso#Medium_Wifi&Connectivity> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "S23" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Survey ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasWifiConnectivityOutOf10 ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :o ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :w
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThanOrEqual> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first :w ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 7 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.semanticweb.org/a/ontologies/2024/3/fsso#Good_Wifi&Connectivity> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "S24" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Survey ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasWifiConnectivityOutOf10 ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :o ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :w
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThanOrEqual> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first :w ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 4 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.semanticweb.org/a/ontologies/2024/3/fsso#Bad_Wifi&Connectivity> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "S01" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Survey ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> <https://dbpedia.org/page/Airliner#isVerified> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :o ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> "false"^^xsd:boolean
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :NonVerifiedSurvey ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "S02" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Survey ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> <https://dbpedia.org/page/Airliner#isVerified> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :o ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> "true"^^xsd:boolean
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :VerifiedSurvey ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Survey ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#o>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasValueForMoneyOutOf10 ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#o> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#w>
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first <urn:swrl:var#w> ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 4 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first <urn:swrl:var#w> ;
+                                                                                                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                rdf:first 7 ;
+                                                                                                                                                rdf:rest rdf:nil
+                                                                                                                                              ]
+                                                                                                                                   ]
+                                                                                      ] ;
+                                                                            rdf:rest rdf:nil
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Medium_ValueForMoney ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#o>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "S1" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :FlightNumber ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :f
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasOrigin ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :f ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :a
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> :isLocatedIn ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :d ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> :t
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> :isLocatedIn ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> :a ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> :c
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#SameIndividualAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument1> :c ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument2> :t
+                                                                                                 ] ;
+                                                                                       rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                  rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasDestination ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument1> :f ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument2> :d
+                                                                                                            ] ;
+                                                                                                  rdf:rest rdf:nil
+                                                                                                ]
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :DomesticFlight ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :f
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "S11" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :FlightNumber ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :f
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasOrigin ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :f ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :a
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> :isLocatedIn ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :d ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> :t
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> :isLocatedIn ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> :a ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> :c
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasDestination ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument1> :f ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument2> :d
+                                                                                                 ] ;
+                                                                                       rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                  rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DifferentIndividualsAtom> ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument1> :c ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument2> :t
+                                                                                                            ] ;
+                                                                                                  rdf:rest rdf:nil
+                                                                                                ]
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :InternationalFlight ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :f
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
